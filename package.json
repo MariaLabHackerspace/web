@@ -1,0 +1,19 @@
+{
+  "name": "marialab-web",
+  "version": "1.0.0",
+  "description": "Marialab web page",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MariaLabHackerspace/web.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MariaLabHackerspace/web/issues"
+  },
+  "homepage": "https://github.com/MariaLabHackerspace/web#readme"
+}
