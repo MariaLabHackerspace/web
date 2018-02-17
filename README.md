@@ -10,7 +10,7 @@ Main Web Page.
 
 ## Stylesheet
 
-- [SASS] (https://sass-lang.com/)
+- [SASS](https://sass-lang.com/)
 - [BEM](http://getbem.com/introduction/)
 - [SMACSS](https://smacss.com/) Folder Architeture
 
