@@ -33,6 +33,5 @@ gulp.task('deploy', function() {
       log: gutil.log
     });
     gulp.src(['index.html', './**/*.css'])
-      .pipe(conn.newer(remotePath))
       .pipe(conn.dest(remotePath));
   });
