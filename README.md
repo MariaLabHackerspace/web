@@ -1,4 +1,4 @@
-# Marialab Web Page
+# Marialab Web Page [![Build Status](https://travis-ci.org/MariaLabHackerspace/web.svg?branch=master)](https://travis-ci.org/MariaLabHackerspace/web)
 Main Web Page.
 
 ## Requirements

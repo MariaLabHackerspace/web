@@ -2,6 +2,10 @@
 
 var gulp = require('gulp');
 var sass = require('gulp-sass');
+var ftp = require('vinyl-ftp');
+var gutil = require('gulp-util');
+var minimist = require('minimist');
+var args = minimist(process.argv.slice(2));
 
 //style paths
 var sassFiles = 'assets/sass/**/*.scss',
@@ -18,3 +22,17 @@ gulp.task('watch',function() {
 });
 
 gulp.task('default', ['sass', 'watch']);
+
+// Travis FTP Deploy
+gulp.task('deploy', function() {
+    var remotePath = '/www/';
+    var conn = ftp.create({
+      host: 'ftp.marialab.org',
+      user: args.user,
+      password: args.password,
+      log: gutil.log
+    });
+    gulp.src(['index.html', sassFiles])
+      .pipe(conn.newer(remotePath))
+      .pipe(conn.dest(remotePath));
+  });
