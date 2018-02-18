@@ -21,17 +21,31 @@ gulp.task('watch',function() {
     gulp.watch(sassFiles,['sass']);
 });
 
-gulp.task('default', ['sass', 'watch']);
-
 // Travis FTP Deploy
-gulp.task('deploy', function() {
-    var remotePath = '/www/';
-    var conn = ftp.create({
-      host: 'ftp.marialab.org',
-      user: args.user,
-      password: args.password,
-      log: gutil.log
-    });
-    gulp.src(['index.html', './**/*.css'])
-      .pipe(conn.dest(remotePath));
-  });
+gulp.task( 'deploy', function () {
+
+var conn = ftp.create( {
+    host:     'ftp.marialab.org',
+    user:     args.user,
+    password: args.password,
+    parallel: 10,
+    log:      gutil.log
+});
+
+var globs = [
+    'assets/css/**',
+    'assets/js/**',
+    'index.html'
+];
+
+// using base = '.' will transfer everything to /public_html correctly
+// turn off buffering in gulp.src for best performance
+
+return gulp.src( globs, { base: '.', buffer: false } )
+    .pipe( conn.newer( '/www/v2' ) ) // only upload newer files
+    .pipe( conn.dest( '/www/v2' ) );
+
+});
+
+gulp.task('default', ['sass', 'watch']);
+gulp.task('build', ['sass']);
