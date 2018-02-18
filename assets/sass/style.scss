@@ -1,0 +1,30 @@
+/*
+
+ABOUT THIS FILE
+Import all the files SCSS in Assets, following the SMACSS metodology.
+
+ */
+
+
+/* SETTINGS */
+@import "settings/site-settings";
+@import "settings/breakpoints";
+@import "settings/mixins";
+
+/* BASE */
+@import "base/normalize";
+@import "base/base";
+
+/* LAYOUT */
+@import "layout/header";
+@import "layout/nav";
+@import "layout/main";
+@import "layout/footer";
+
+/* MODULE */
+@import "module/btn";
+@import "module/icons";
+@import "module/animations";
+
+/* STATE */
+@import "state/state";
