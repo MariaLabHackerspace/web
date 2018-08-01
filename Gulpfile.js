@@ -29,7 +29,8 @@ var conn = ftp.create( {
     user:     args.user,
     password: args.password,
     parallel: 10,
-    log:      gutil.log
+    log:      gutil.log,
+    secure:   true
 });
 
 var globs = [
