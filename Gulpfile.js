@@ -30,7 +30,8 @@ var conn = ftp.create( {
     password: args.password,
     parallel: 10,
     log:      gutil.log,
-    secure:   true
+    secure:   true,
+    secureOptions: {rejectUnauthorized: false}
 });
 
 var globs = [
