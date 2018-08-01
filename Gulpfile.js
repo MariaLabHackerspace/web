@@ -44,8 +44,8 @@ var globs = [
 // turn off buffering in gulp.src for best performance
 
 return gulp.src( globs, { base: '.', buffer: false } )
-    .pipe( conn.newer( '/www/v2' ) ) // only upload newer files
-    .pipe( conn.dest( '/www/v2' ) );
+    .pipe( conn.newer( '/home/marialab/www/v2' ) ) // only upload newer files
+    .pipe( conn.dest( '/home/marialab/www/v2' ) );
 
 });
 
